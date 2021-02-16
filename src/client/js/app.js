@@ -76,7 +76,7 @@ const getWeather = async (weatherbitKey, lat, long) => {
   }
 };
 
-//GET request to restcountries API
+//GET request to restCountries API
 const getFlag = async (countryName) => {
   const res = await fetch(
     `https://restcountries.eu/rest/v2/name/${countryName}`
