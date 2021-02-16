@@ -8,17 +8,11 @@ require("dotenv").config();
 
 const app = express();
 
-console.log(__dirname);
-console.log(process.env);
-
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("dist"));
-
-//const baseURL = "https://api.meaningcloud.com/sentiment-2.1?";
-//const myApiKey = process.env.MY_API_KEY;
 
 app.get("/", function (req, res) {
     // res.sendFile('dist/index.html')

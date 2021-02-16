@@ -11,25 +11,16 @@ export function handler() {
   const cityName = document.getElementById("city").value;
 
   getCityInfo(geonamesID, cityName).then(function (data) {
-    //postData("/add", { country: d, long: data.main.temp, lat: feeling });
     const country = data.geonames[0].countryName;
     const lat = data.geonames[0].lat;
     const long = data.geonames[0].lng;
-    console.log(lat);
-    console.log(long);
-    console.log(country);
-    console.log(
-      `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${long}&key=${weatherbitKey}`
-    );
 
     getWeather(weatherbitKey, lat, long).then(function (data) {
       const temp = data.data[0].temp;
       const icon = data.data[0].weather.icon;
       
       getCityImg(pixabayKey, cityName).then(function (data) {
-        //postData("/add", { country: d, long: data.main.temp, lat: feeling });
         const imageUrl = data.hits[0].webformatURL;
-        console.log(imageUrl);
         getFlag (country).then(function(data){
           const flagUrl = data[0].flag;
           updateUI(imageUrl, cityName, country, flagUrl, temp, icon);
@@ -97,15 +88,12 @@ function updateUI(imageUrl, cityName, country, flagUrl, temp, icon) {
   document.getElementById("weather").innerHTML = `The weather is: ${temp}°`;
   document.getElementById("weatherImg").innerHTML = `<img style='height: 40px; width: 40px;' src="https://www.weatherbit.io/static/img/icons/${icon}.png" alt="weather photo" >`;
   document.getElementById("flagImg").innerHTML = `<img class='inline-block' style='height: 30px; width: 30px;' src="${flagUrl}" alt="weather photo" >`;
-  console.log(`https://www.weatherbit.io/static/img/icons/${icon}png `);
 }
-
 
 /*Count Down Departing Date*/
 function calculateCountDownDate() {
   // Get Departing date
   const leavingDate = document.getElementById("date").value;
-  console.log(leavingDate);
   const countDownDate = new Date(leavingDate);
   // Get today's date
   const now = new Date();
