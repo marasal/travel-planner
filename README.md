@@ -8,6 +8,7 @@ The project will include a simple form where you enter the location you are trav
 
 <p align="center">
   <img src="src/client/img/UI.png"> </p>
+  
 ## Built tools
 * [HTML]
 * [CSS]
