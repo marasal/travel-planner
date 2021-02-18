@@ -20,6 +20,9 @@ The project will include a simple form where you enter the location you are trav
 * [Jest] - Testing suit
 * [Service-Workers]- For offline capability
 
+## Additional Features
+- Integrate the RESTCountries API to pull in national flag of the destination country.
+
 ## Getting Started
 
 1. Clone into repo:
